@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HabeshaBit.Models.Album>
+
+@{
+    ViewBag.Title = "My Albums";
+    Layout = "~/Views/Shared/_artist.cshtml";
+}
+
+<h2>My Albums</h2>
+
+
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Album/Edit", new { id=item.id }) |
+
+            @Html.ActionLink("Delete", "Album/Delete", new { id=item.id })|
+            
+        </td>
+    </tr>
+}
+
+</table>

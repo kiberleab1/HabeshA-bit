@@ -12,6 +12,11 @@ namespace HabeshaBit
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+                name: "music",
+                url: "music/{action}/{id}",
+                defaults: new { controller="Music",action="Index" }
+                );
 
             routes.MapRoute(
                 name: "Default",

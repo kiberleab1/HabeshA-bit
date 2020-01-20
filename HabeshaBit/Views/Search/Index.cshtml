@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HabeshaBit.Models.Music>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("Index", "Search", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Search</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" name="Query"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div class="row row-sm">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="item">
+                    <div class="pos-rlt">
+                        <div class="item-overlay opacity r r-2x bg-black">
+                            <div class="center text-center m-t-n">
+                                <a href="@Url.Content(@item.musicPath)"><i class="icon-control-play i-2x"></i></a>
+                            </div>
+                        </div>
+                        <a href="@Url.Content(@item.picPath)">
+                            <img src="~/@item.picPath" class="r r-2x img-full">
+                        </a>
+                    </div>
+                    <div class="padder-v">
+                        <a href="@Url.Content(@item.musicPath)" class="text-ellipsis">@item.musicName</a>
+                        <a href="@Url.Content(@item.musicPath)" class="text-ellipsis text-xs text-muted">@item.musicName</a>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -46,9 +46,29 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SendGrid, Version=9.10.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.10.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,8 +87,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
@@ -176,12 +194,24 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Musiccontroller.cs" />
+    <Compile Include="Controllers\MusuicsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\DataConnection.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Model2.cs" />
+    <Compile Include="Models\Music.cs" />
+    <Compile Include="Models\MusicModel.cs" />
+    <Compile Include="Models\muuusic.cs" />
+    <Compile Include="Models\PlayList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -194,8 +224,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\a.html" />
+    <Content Include="Scripts\actions.js" />
+    <Content Include="Scripts\adsbygoogle.js" />
+    <Content Include="Scripts\analytics.js" />
+    <Content Include="Scripts\app.css" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\app_002.js" />
+    <Content Include="Scripts\bootstrap.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\css\style.css" />
+    <Content Include="Scripts\index_data\a.xht" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -206,8 +246,96 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\index.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\sss\a.html" />
+    <Content Include="Scripts\sss\actions.js" />
+    <Content Include="Scripts\sss\ads%281%29.html" />
+    <Content Include="Scripts\sss\ads%282%29.html" />
+    <Content Include="Scripts\sss\ads.html" />
+    <Content Include="Scripts\sss\adsbygoogle.js" />
+    <Content Include="Scripts\sss\analytics.js" />
+    <Content Include="Scripts\sss\animate.css" />
+    <Content Include="Scripts\sss\app.css" />
+    <Content Include="Scripts\sss\app.js" />
+    <Content Include="Scripts\sss\app_002.js" />
+    <Content Include="Scripts\sss\bootstrap.css" />
+    <Content Include="Scripts\sss\bootstrap.js" />
+    <Content Include="Scripts\sss\ca-pub-7402107631652595.js" />
+    <Content Include="Scripts\sss\cover-256-1CpI0BltlHIPIyD.jpg" />
+    <Content Include="Scripts\sss\cover-256-2HGyypSE0jRtO5P.jpg" />
+    <Content Include="Scripts\sss\cover-256-3tG3QULYYU8aHid.jpg" />
+    <Content Include="Scripts\sss\cover-256-Ba9OJ9rkVvDyuOS.jpg" />
+    <Content Include="Scripts\sss\cover-256-BHGXTwxzbIxSq5W.jpg" />
+    <Content Include="Scripts\sss\cover-256-BskhDSlxCKT44zy.jpg" />
+    <Content Include="Scripts\sss\cover-256-Btjjeq22QkjhHDG.jpg" />
+    <Content Include="Scripts\sss\cover-256-niAhhGYdlLTO025.jpg" />
+    <Content Include="Scripts\sss\cover-256-NK3TCF6S0dRkDHE.jpg" />
+    <Content Include="Scripts\sss\cover-256-PceriHNoxnXIsev.jpg" />
+    <Content Include="Scripts\sss\cover-256-RZhgYRpwCYAgtN6.jpg" />
+    <Content Include="Scripts\sss\cover-256-UFKG31iyyXOd4WA.jpg" />
+    <Content Include="Scripts\sss\cover-256-USw1b553KsHwUS2.jpg" />
+    <Content Include="Scripts\sss\cover-256-VOiM7k2mUUb2phG.jpg" />
+    <Content Include="Scripts\sss\cover-256-xNJJ9qoWLeb9lGN.jpg" />
+    <Content Include="Scripts\sss\cover-256-yXnEDDmf6DBTZtw.jpg" />
+    <Content Include="Scripts\sss\cover-256-ZekmHvZFhJbdQTX.jpg" />
+    <Content Include="Scripts\sss\cover-256.jpg" />
+    <Content Include="Scripts\sss\default_user.jpg" />
+    <Content Include="Scripts\sss\download_google_play.png" />
+    <Content Include="Scripts\sss\f%281%29.txt" />
+    <Content Include="Scripts\sss\f%282%29.txt" />
+    <Content Include="Scripts\sss\f%283%29.txt" />
+    <Content Include="Scripts\sss\f%284%29.txt" />
+    <Content Include="Scripts\sss\f%285%29.txt" />
+    <Content Include="Scripts\sss\f%286%29.txt" />
+    <Content Include="Scripts\sss\f%287%29.txt" />
+    <Content Include="Scripts\sss\f.txt" />
+    <Content Include="Scripts\sss\font-awesome.css" />
+    <Content Include="Scripts\sss\font-awesome.min.css" />
+    <Content Include="Scripts\sss\font.css" />
+    <Content Include="Scripts\sss\index.html" />
+    <Content Include="Scripts\sss\integrator.js" />
+    <Content Include="Scripts\sss\integrator_002.js" />
+    <Content Include="Scripts\sss\jplayer.css" />
+    <Content Include="Scripts\sss\jplayer.flat.css" />
+    <Content Include="Scripts\sss\jquery.js" />
+    <Content Include="Scripts\sss\jquery_002.js" />
+    <Content Include="Scripts\sss\jquery_003.js" />
+    <Content Include="Scripts\sss\js\index.js" />
+    <Content Include="Scripts\sss\m40.jpg" />
+    <Content Include="Scripts\sss\m41.jpg" />
+    <Content Include="Scripts\sss\m42.jpg" />
+    <Content Include="Scripts\sss\m44.jpg" />
+    <Content Include="Scripts\sss\m45.jpg" />
+    <Content Include="Scripts\sss\main-cover-3tG3QULYYU8aHid.jpg" />
+    <Content Include="Scripts\sss\osd.js" />
+    <Content Include="Scripts\sss\saved_resource%281%29.html" />
+    <Content Include="Scripts\sss\saved_resource%282%29.html" />
+    <Content Include="Scripts\sss\saved_resource%283%29.html" />
+    <Content Include="Scripts\sss\saved_resource%284%29.html" />
+    <Content Include="Scripts\sss\saved_resource%285%29.html" />
+    <Content Include="Scripts\sss\saved_resource.html" />
+    <Content Include="Scripts\sss\show_ads_impl.js" />
+    <Content Include="Scripts\sss\simple-line-icons.css" />
+    <Content Include="Scripts\sss\thumbnail-3tG3QULYYU8aHid.jpg" />
+    <Content Include="Scripts\sss\thumbnail-Ba9OJ9rkVvDyuOS.jpg" />
+    <Content Include="Scripts\sss\thumbnail-Bf0AWgZHGVzZdPI.jpg" />
+    <Content Include="Scripts\sss\thumbnail-BHGXTwxzbIxSq5W.jpg" />
+    <Content Include="Scripts\sss\thumbnail-Btjjeq22QkjhHDG.jpg" />
+    <Content Include="Scripts\sss\thumbnail-Dr5fgxEfPv4ALQE.jpg" />
+    <Content Include="Scripts\sss\thumbnail-FJuaynQKYDvAJ9j.jpg" />
+    <Content Include="Scripts\sss\thumbnail-gUK8rokhoX0lWEb.jpg" />
+    <Content Include="Scripts\sss\thumbnail-iXKx0v1QD0Jvpxf.jpg" />
+    <Content Include="Scripts\sss\thumbnail-UhgBpbUOQedx3Q4.jpg" />
+    <Content Include="Scripts\sss\thumbnail-XoSgoLaulqyfBE1.jpg" />
+    <Content Include="Scripts\sss\thumbnail-yXnEDDmf6DBTZtw.jpg" />
+    <Content Include="Scripts\sss\thumbnail-ZekmHvZFhJbdQTX.jpg" />
+    <Content Include="Scripts\sss\thumbnail.jpg" />
+    <Content Include="Scripts\sss\zefen.png" />
+    <Content Include="Scripts\sss\zrt_lookup.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -241,9 +369,45 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Music\Index.cshtml" />
+    <Content Include="Views\Music\upload.cshtml" />
+    <Content Include="Views\Account\RegisterArtist.cshtml" />
+    <Content Include="Views\Music\MyAlbums.cshtml" />
+    <Content Include="Views\Music\getAlbum.cshtml" />
+    <Content Include="Views\Music\createAlbum.cshtml" />
+    <Content Include="Scripts\sss\index_data\a.xht" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\SerachResult.cshtml" />
+    <Content Include="Views\Music\play.cshtml" />
+    <Content Include="Scripts\sss\actions.js.download" />
+    <Content Include="Scripts\sss\analytics.js.download" />
+    <Content Include="Scripts\sss\app.js.download" />
+    <Content Include="Scripts\sss\app.plugin.js.download" />
+    <Content Include="Scripts\sss\bootstrap.js.download" />
+    <Content Include="Scripts\sss\ca-pub-7402107631652595.js.download" />
+    <Content Include="Scripts\sss\css" />
+    <Content Include="Scripts\sss\gvnBlcTW6NNX97xpGmBHYWPbvpIqbXt7QsmNDFCmSP8.js.download" />
+    <Content Include="Scripts\sss\jplayer.playlist.min.js.download" />
+    <Content Include="Scripts\sss\jquery.jplayer.min.js.download" />
+    <Content Include="Scripts\sss\jquery.min.js.download" />
+    <Content Include="Scripts\sss\jquery.slimscroll.min.js.download" />
+    <Content Include="Scripts\sss\l" />
+    <Content Include="Scripts\sss\osd.js.download" />
+    <Content Include="Scripts\sss\osd_listener.js.download" />
+    <Content Include="Views\Shared\_artist.cshtml" />
+    <Content Include="Views\Music\detailsAlbum.cshtml" />
+    <Content Include="Views\Music\playlist.cshtml" />
+    <Content Include="Views\Musuics\Create.cshtml" />
+    <Content Include="Views\Musuics\Delete.cshtml" />
+    <Content Include="Views\Musuics\Details.cshtml" />
+    <Content Include="Views\Musuics\Edit.cshtml" />
+    <Content Include="Views\Musuics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\index_data\a_data\" />
+    <Folder Include="Scripts\sss\index_data\a_data\" />
+    <Folder Include="UploadedMusic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

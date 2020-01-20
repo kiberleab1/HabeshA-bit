@@ -1,44 +1,166 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="app js touch no-android no-chrome firefox no-iemobile no-ie no-ie8 no-ie10 no-ie11 no-ios no-ios7 ipad" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Discover new music, listen to classic hits; and create and share playlists on Zefen | zefen.com</title>
+    <meta name="description" content="Discover new Ethiopian, Eritrean and African music, listen to classic hits and create playlists on Zefen">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="~/Scripts/sss/jplayer.css" type="text/css">
+    <link rel="stylesheet" href="~/Scripts/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/Scripts/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="~/Scripts/simple-line-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/Scripts/font.css" type="text/css">
+    <link rel="stylesheet" href="~/Scripts/app.css" type="text/css">
+    <!--[if lt IE 9]>
+      <script src="/assets/js/ie/html5shiv.js"></script>
+      <script src="/assets/js/ie/respond.min.js"></script>
+      <script src="/assets/js/ie/excanvas.js"></script>
+    <![endif]-->
+    <script src="~/Scripts/osd.js"></script>
+    <script src="~/Scripts/ca-pub-7402107631652595.js"></script>
+    <script src="~/Scripts/show_ads_impl.js" id="google_shimpl"></script>
+    <script async="" src="~/Scripts/analytics.js"></script>
+    <script async="" src="~/Scripts/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7402107631652595",
+            enable_page_level_ads: true
+        });
+    </script>
+    <link rel="preload" href="~/Scripts/integrator.js" as="script">
+    <script type="text/javascript" src="~/Scripts/integrator.js"></script>
+    <link rel="preload" href="~/Scripts/integrator_002.js" as="script">
+    <script type="text/javascript" src="~/Scripts/integrator_002.js"></script>
+    <link rel="preload" href="~/Scripts/show_ads_impl.js" as="script">
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+<body class="">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-71318270-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <section class="vbox">
+        <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside" style="background-color:black">
+                <center><a href="#">
+                    <img src="~/Scripts/sss/zefen.png" alt="." height="60px"></a></center>
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="icon-list"></i>
+                </a>
+            </div>
+        </header>
+
+        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-black dk aside hidden-print" id="nav">
+                    <section class="vbox">
+                        <section class="w-f-md scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railopacity="0.2">
+                                <!-- nav -->
+                                <nav class="nav-primary hidden-xs">
+                                    <ul class="nav bg clearfix">
+                                        <span class="clearfix">&nbsp;</span>
+                                        <li>
+                                            @Html.ActionLink("Music", "Index", "Music", routeValues: null, htmlAttributes: new { title = "Home" })
+                                        </li>
+                                        <!--    <li>
+               <a href="http://www.zefen.com/genres.php">
+                 <i class="fa fa-th-list icon text-info"></i>
+                 <span class="font-bold">Genres</span>
+             </a>-->
+                                        </li>
+                                        <li>
+
+                                            @Html.ActionLink("My PlayList", "Playlist", "Music", routeValues: null, htmlAttributes: new { title = "Search" })
+                                        </li>
+                                        <li class="m-b hidden-nav-xs"></li>
+                                    </ul>
+                                    <ul class="nav text-sm">
+                                        <!--   <li>
+                <a href="http://www.zefen.com/login.php">
+                    <i class="fa fa-hand-o-right icon"></i>
+                    <span>My Playlist</span>
+                </a>
+            </li>-->
+
+                <i class="fa fa-hand-o-right icon"></i>
+                @Html.Partial("_LoginPartial")
+
+
+                <li>
+                    @Html.ActionLink("For producers", "About", "Home", routeValues: null, htmlAttributes: new { title = "Home" })
+
+                    <!--      <a href="#">
+        <i class="fa fa-microphone icon"></i>
+        <span>For Producers</span>
+    </a>-->
+                </li>
+            <li>
+                <div style="text-align: center;">
+                    <br><br>
+                    <a href="#">
+                        <img src="~/Scripts/sss/download_google_play.png" style="width: 50%">
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- / nav -->
+
+</div>
+                        </section>
+
+                        <footer class="footer hidden-xs no-padder text-center-nav-xs">
+                            <div class="bg hidden-xs "></div>
+                        </footer>
+                    </section>
+                </aside>
+                <!-- /.aside -->
+                <section id="content">
+                    <section class="hbox stretch">
+                        <section>
+                            <section class="vbox">
+                                <section class="scrollable padder-lg" id="bjax-target">
+                                    @RenderBody()
+                                    <div class="footer bg-dark">
+                                        <a href="#" class="font-semibold">About Us</a> |
+                                        <a href="#" class="font-semibold">Guide</a> |
+                                        <a href="#"font-semibold">For Producers</a> |
+                                        <a href="#" class="font-semibold">Dmca</a> |
+                                        <a href="#"lass="font-semibold">Privacy</a>
+                                        <br>
+                                        (c) HabshaBeat 2018 - Discover and share new and classic music on Zefen.
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                                <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <script src="~/Scripts/sss/jquery.js"></script>
+                <script src="~/Scripts/sss/bootstrap.js"></script>
+                <script src="~/Scripts/sss/app_002.js"></script>
+                <script src="~/Scripts/sss/jquery_002.js"></script>
+                <script src="~/Scripts/sss/app.js"></script>
+                <script type="text/javascript" src="~/Scripts/sss/jquery_003.js"></script>
+                <script type="text/javascript" src="~/Scripts/sss/actions.js"></script>
+
+                @RenderSection("scripts", required: false)
 </body>
+<!--<iframe id="google_esf" name="google_esf" src="~/Scripts/zrt_lookup.html" style="display: none;" data-ad-client="ca-pub-7402107631652595"></iframe>
+-->
 </html>
+

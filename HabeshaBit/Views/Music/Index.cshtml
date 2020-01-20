@@ -1,0 +1,43 @@
+﻿@model IEnumerable<HabeshaBit.Models.Music>
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    @using (Html.BeginForm("Index", "Music", FormMethod.Post))
+    {
+
+        <input type="text" name="query" placeholder="part Artist or Music "/>
+        <input type="submit" value="Search" />
+    }
+    </div>
+<div class="row row-sm">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="item">
+                <div class="pos-rlt">
+                    <div class="item-overlay opacity r r-2x bg-black">
+                        <div class="center text-center m-t-n">
+                            @Html.ActionLink("Play", "Play", new { id = item.musiID })
+                        </div>
+                    </div>
+
+                    @Html.ActionLink(item.artist, "Play", new { id = item.musiID })
+                    <img src="~/@item.picPath" class="r r-2x img-full">
+
+                </div>
+                <div class="padder-v">
+                    @Html.ActionLink(item.musicName, "Music", new { id = item.musiID })
+                    <a href="@Url.Content(@item.musicPath)" class="text-ellipsis">@item.musicName</a>
+                    <a href="@Url.Content(@item.musicPath)" class="text-ellipsis text-xs text-muted">@item.musicName</a>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
+
